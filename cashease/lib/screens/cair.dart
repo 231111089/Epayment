@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:flutter/services.dart'; // Ditambahkan untuk input format
 import 'package:intl/intl.dart';
 // Menggunakan path relatif yang benar ke services/
@@ -14,6 +15,14 @@ class CairPage extends StatefulWidget {
     required this.bankName,
     required this.phoneNumber,
   });
+=======
+import 'package:intl/intl.dart';
+
+class CairPage extends StatefulWidget {
+  final String bankName;
+
+  const CairPage({super.key, required this.bankName});
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
 
   @override
   State<CairPage> createState() => _CairPageState();
@@ -23,9 +32,12 @@ class _CairPageState extends State<CairPage> {
   final TextEditingController _amountController = TextEditingController();
   final TextEditingController _pinController = TextEditingController();
   final NumberFormat _currencyFormat = NumberFormat.decimalPattern('id');
+<<<<<<< HEAD
   final DatabaseHelper _dbHelper = DatabaseHelper();
   static const int adminFee = 2000;
   bool _isProcessing = false;
+=======
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
 
   @override
   void initState() {
@@ -34,11 +46,17 @@ class _CairPageState extends State<CairPage> {
   }
 
   void _formatCurrency() {
+<<<<<<< HEAD
     // Memformat input dengan pemisah ribuan
     final value = _amountController.text.replaceAll(RegExp(r'[^\d]'), '');
     if (value.isNotEmpty) {
       final formatted = _currencyFormat.format(int.parse(value));
       // Menggunakan replaceFirst untuk menghilangkan format di sisi Dart
+=======
+    final value = _amountController.text.replaceAll(RegExp(r'[^\d]'), '');
+    if (value.isNotEmpty) {
+      final formatted = _currencyFormat.format(int.parse(value));
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
       _amountController.value = TextEditingValue(
         text: formatted,
         selection: TextSelection.collapsed(offset: formatted.length),
@@ -46,6 +64,7 @@ class _CairPageState extends State<CairPage> {
     }
   }
 
+<<<<<<< HEAD
   Future<void> _submitWithdrawal() async {
     // Bersihkan input dari format mata uang
     final rawAmountText = _amountController.text.replaceAll(
@@ -102,10 +121,23 @@ class _CairPageState extends State<CairPage> {
       _showSnackBar(
         'Penarikan gagal: Saldo tidak mencukupi (Perlu Rp ${_formatNumber(totalDeduction)} termasuk biaya admin)',
         Colors.red,
+=======
+  void _submitWithdrawal() async {
+    final amount = _amountController.text.trim();
+    final pin = _pinController.text.trim();
+
+    if (amount.isEmpty || pin.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.red,
+          content: Text('Harap isi nominal dan PIN terlebih dahulu'),
+        ),
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
       );
       return;
     }
 
+<<<<<<< HEAD
     // 3. Proses Penarikan (Kurangi Saldo)
     final subtractionSuccess = await _dbHelper.subtractBalance(
       widget.phoneNumber,
@@ -173,6 +205,9 @@ class _CairPageState extends State<CairPage> {
   String _formatNumber(int number) {
     final formatter = NumberFormat('#,##0', 'id_ID');
     return formatter.format(number);
+=======
+    Navigator.pop(context); // Langsung kembali ke halaman withdraw.dart
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
   }
 
   @override
@@ -181,6 +216,7 @@ class _CairPageState extends State<CairPage> {
       backgroundColor: Colors.deepPurple,
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
+<<<<<<< HEAD
         title: const Text(
           'Form Penarikan',
           style: TextStyle(color: Colors.white),
@@ -280,6 +316,82 @@ class _CairPageState extends State<CairPage> {
               ),
             ],
           ),
+=======
+        title: Text('Form Penarikan', style: TextStyle(color: Colors.white)),
+        iconTheme: IconThemeData(color: Colors.white),
+        elevation: 0,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Metode: ${widget.bankName}',
+              style: TextStyle(fontSize: 18, color: Colors.white),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Nominal Penarikan',
+              style: TextStyle(fontSize: 16, color: Colors.white),
+            ),
+            SizedBox(height: 8),
+            TextField(
+              controller: _amountController,
+              keyboardType: TextInputType.number,
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                hintText: 'Contoh: 100000',
+                hintStyle: TextStyle(color: Colors.white54),
+                filled: true,
+                fillColor: Colors.deepPurple.shade400,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Masukkan PIN',
+              style: TextStyle(fontSize: 16, color: Colors.white),
+            ),
+            SizedBox(height: 8),
+            TextField(
+              controller: _pinController,
+              obscureText: true,
+              keyboardType: TextInputType.number,
+              maxLength: 5,
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                counterText: '',
+                hintText: '••••••',
+                hintStyle: TextStyle(color: Colors.white54),
+                filled: true,
+                fillColor: Colors.deepPurple.shade400,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+            ),
+            SizedBox(height: 30),
+            Center(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.deepPurple,
+                  minimumSize: Size(200, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                ),
+                onPressed: _submitWithdrawal,
+                child: Text('Tarik Dana'),
+              ),
+            ),
+          ],
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
         ),
       ),
     );
@@ -287,7 +399,10 @@ class _CairPageState extends State<CairPage> {
 
   @override
   void dispose() {
+<<<<<<< HEAD
     _amountController.removeListener(_formatCurrency);
+=======
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
     _amountController.dispose();
     _pinController.dispose();
     super.dispose();

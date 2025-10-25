@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // lib/screens/history.dart (Asumsi file ini ada di lib/screens/)
 
 import 'package:flutter/material.dart';
@@ -7,6 +8,13 @@ class History extends StatefulWidget {
   final String phoneNumber; // Tambahkan properti phoneNumber
 
   const History({super.key, required this.phoneNumber});
+=======
+import 'package:flutter/material.dart';
+// No need to import intl package as we'll create our own formatting methods
+
+class History extends StatefulWidget {
+  const History({super.key});
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
 
   @override
   State<History> createState() => _HistoryState();
@@ -23,10 +31,116 @@ class _HistoryState extends State<History> {
   final TextEditingController _searchController = TextEditingController();
   String searchQuery = '';
 
+<<<<<<< HEAD
   // Data transaksi (sekarang kosong, akan diisi dari database)
   List<Map<String, dynamic>> allTransactions = [];
   final DatabaseHelper _dbHelper = DatabaseHelper(); // Inisialisasi DB Helper
   bool _isLoading = true;
+=======
+  // Data dummy untuk transaksi yang lebih banyak dan beragam
+  final List<Map<String, dynamic>> allTransactions = [
+    {
+      'type': 'topup',
+      'status': 'success',
+      'description': 'Top Up Successful',
+      'detail': 'Successfully Added Rp. 100.000',
+      'color': Colors.green,
+      'icon': Icons.arrow_upward,
+      'date': DateTime(2025, 4, 28),
+      'amount': 100000,
+    },
+    {
+      'type': 'payment',
+      'status': 'success',
+      'description': 'Payment to Merchant',
+      'detail': 'Paid Rp. 75.000 to Online Store',
+      'color': Colors.blue,
+      'icon': Icons.shopping_cart,
+      'date': DateTime(2025, 4, 27),
+      'amount': -75000,
+    },
+    {
+      'type': 'topup',
+      'status': 'failed',
+      'description': 'Top Up Failed',
+      'detail': 'Failed to Add Rp. 200.000',
+      'color': Colors.red,
+      'icon': Icons.error,
+      'date': DateTime(2025, 4, 26),
+      'amount': 0,
+    },
+    {
+      'type': 'send_money',
+      'status': 'success',
+      'description': 'Send Money to Friend',
+      'detail': 'Sent Rp. 150.000 to John Doe',
+      'color': Colors.orange,
+      'icon': Icons.send,
+      'date': DateTime(2025, 4, 25),
+      'amount': -150000,
+    },
+    {
+      'type': 'cashback',
+      'status': 'success',
+      'description': 'Cashback Received',
+      'detail': 'Received Rp. 25.000 Cashback',
+      'color': Colors.green,
+      'icon': Icons.monetization_on,
+      'date': DateTime(2025, 4, 24),
+      'amount': 25000,
+    },
+    {
+      'type': 'refund',
+      'status': 'in_progress',
+      'description': 'Refund Processing',
+      'detail': 'Refund of Rp. 90.000 in Progress',
+      'color': Colors.amber,
+      'icon': Icons.replay,
+      'date': DateTime(2025, 4, 23),
+      'amount': 0,
+    },
+    {
+      'type': 'payment',
+      'status': 'cancelled',
+      'description': 'Payment Cancelled',
+      'detail': 'Cancelled Payment of Rp. 120.000',
+      'color': Colors.grey,
+      'icon': Icons.cancel,
+      'date': DateTime(2025, 4, 22),
+      'amount': 0,
+    },
+    {
+      'type': 'topup',
+      'status': 'success',
+      'description': 'Top Up Successful',
+      'detail': 'Successfully Added Rp. 500.000',
+      'color': Colors.green,
+      'icon': Icons.arrow_upward,
+      'date': DateTime(2025, 4, 21),
+      'amount': 500000,
+    },
+    {
+      'type': 'payment',
+      'status': 'success',
+      'description': 'Payment for Utilities',
+      'detail': 'Paid Rp. 250.000 for Electricity',
+      'color': Colors.blue,
+      'icon': Icons.lightbulb,
+      'date': DateTime(2025, 4, 20),
+      'amount': -250000,
+    },
+    {
+      'type': 'cashback',
+      'status': 'success',
+      'description': 'Promo Cashback',
+      'detail': 'Received Rp. 50.000 Promo Cashback',
+      'color': Colors.green,
+      'icon': Icons.card_giftcard,
+      'date': DateTime(2025, 4, 19),
+      'amount': 50000,
+    },
+  ];
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
 
   // Filtered transactions based on selected criteria
   List<Map<String, dynamic>> filteredTransactions = [];
@@ -34,7 +148,14 @@ class _HistoryState extends State<History> {
   @override
   void initState() {
     super.initState();
+<<<<<<< HEAD
     _loadTransactions(); // Memuat data dari database
+=======
+    // Initialize filtered transactions with all transactions
+    filteredTransactions = List.from(allTransactions);
+
+    // Add listener to search controller
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
     _searchController.addListener(_onSearchChanged);
   }
 
@@ -45,6 +166,7 @@ class _HistoryState extends State<History> {
     super.dispose();
   }
 
+<<<<<<< HEAD
   // Fungsi untuk memuat data dari database
   Future<void> _loadTransactions() async {
     setState(() => _isLoading = true);
@@ -165,6 +287,8 @@ class _HistoryState extends State<History> {
     };
   }
 
+=======
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
   // Search functionality
   void _onSearchChanged() {
     setState(() {
@@ -176,8 +300,11 @@ class _HistoryState extends State<History> {
   // Apply filters based on selected criteria
   void _applyFilters() {
     setState(() {
+<<<<<<< HEAD
       // Logic filter status sudah benar. Jika selectedStatus == null (ketika 'All' dipilih),
       // maka kondisi matchesStatus akan selalu true.
+=======
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
       filteredTransactions =
           allTransactions.where((transaction) {
             // Search filter
@@ -190,12 +317,20 @@ class _HistoryState extends State<History> {
                   searchQuery.toLowerCase(),
                 );
 
+<<<<<<< HEAD
             // Status filter: pastikan status di UI chip cocok dengan status di DB ('success', 'failed', dll.)
+=======
+            // Status filter
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
             bool matchesStatus =
                 selectedStatus == null ||
                 transaction['status'] == selectedStatus;
 
+<<<<<<< HEAD
             // Category filter (menggunakan kolom 'type' dari mapping)
+=======
+            // Category filter
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
             bool matchesCategory =
                 selectedCategory == null ||
                 transaction['type'] == selectedCategory;
@@ -229,6 +364,7 @@ class _HistoryState extends State<History> {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     if (_isLoading) {
       return const Scaffold(
         body: Center(
@@ -236,6 +372,8 @@ class _HistoryState extends State<History> {
         ),
       );
     }
+=======
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
@@ -323,7 +461,10 @@ class _HistoryState extends State<History> {
                       if (picked != null && picked != selectedDate) {
                         setState(() {
                           selectedDate = picked;
+<<<<<<< HEAD
                           _applyFilters();
+=======
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
                         });
                       }
                     },
@@ -353,7 +494,11 @@ class _HistoryState extends State<History> {
                           ),
                           Icon(
                             Icons.calendar_today,
+<<<<<<< HEAD
                             color: Colors.deepPurple,
+=======
+                            color: Colors.blue[700],
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
                             size: 18,
                           ),
                         ],
@@ -376,9 +521,12 @@ class _HistoryState extends State<History> {
                         child: OutlinedButton(
                           onPressed: () {
                             _resetFilters();
+<<<<<<< HEAD
                             setState(() {
                               showFilterPanel = false;
                             });
+=======
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
                           },
                           style: OutlinedButton.styleFrom(
                             foregroundColor: Colors.deepPurple,
@@ -427,9 +575,13 @@ class _HistoryState extends State<History> {
                           ),
                           const SizedBox(height: 16),
                           Text(
+<<<<<<< HEAD
                             allTransactions.isEmpty
                                 ? 'No transactions found in database'
                                 : 'No transactions found matching filters',
+=======
+                            'No transactions found',
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
                             style: TextStyle(
                               fontSize: 16,
                               color: Colors.grey[600],
@@ -496,7 +648,11 @@ class _HistoryState extends State<History> {
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color:
+<<<<<<< HEAD
                                             (transaction['amount'] as int) > 0
+=======
+                                            transaction['amount'] > 0
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
                                                 ? Colors.green
                                                 : Colors.red,
                                       ),
@@ -521,12 +677,20 @@ class _HistoryState extends State<History> {
       spacing: 8,
       runSpacing: 8,
       children: [
+<<<<<<< HEAD
         _buildFilterChip('All', null, isStatus: true),
         _buildFilterChip('Success', 'success', isStatus: true),
         _buildFilterChip('Cancelled', 'cancelled', isStatus: true),
         _buildFilterChip('In Progress', 'in_progress', isStatus: true),
         _buildFilterChip('Failed', 'failed', isStatus: true),
         _buildFilterChip('Approved', 'approved', isStatus: true),
+=======
+        _buildFilterChip('All', null),
+        _buildFilterChip('Success', 'success'),
+        _buildFilterChip('Cancelled', 'cancelled'),
+        _buildFilterChip('In Progress', 'in_progress'),
+        _buildFilterChip('Failed', 'failed'),
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
       ],
     );
   }
@@ -536,6 +700,7 @@ class _HistoryState extends State<History> {
       spacing: 8,
       runSpacing: 8,
       children: [
+<<<<<<< HEAD
         _buildCategoryChip('All', null, isStatus: false),
         _buildCategoryChip('Payment', 'payment', isStatus: false),
         _buildCategoryChip('Withdraw', 'withdraw', isStatus: false),
@@ -544,10 +709,19 @@ class _HistoryState extends State<History> {
         _buildCategoryChip('Transfer', 'transfer', isStatus: false),
         _buildCategoryChip('Saving Goal', 'saving_goal', isStatus: false),
         _buildCategoryChip('Failed Trans', 'failed', isStatus: false),
+=======
+        _buildCategoryChip('All', null),
+        _buildCategoryChip('Payment', 'payment'),
+        _buildCategoryChip('Refund', 'refund'),
+        _buildCategoryChip('Top up', 'topup'),
+        _buildCategoryChip('Cashback', 'cashback'),
+        _buildCategoryChip('Send Money', 'send_money'),
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
       ],
     );
   }
 
+<<<<<<< HEAD
   Widget _buildFilterChip(
     String label,
     String? value, {
@@ -555,10 +729,15 @@ class _HistoryState extends State<History> {
   }) {
     final isSelected =
         isStatus ? selectedStatus == value : selectedCategory == value;
+=======
+  Widget _buildFilterChip(String label, String? value) {
+    final isSelected = selectedStatus == value;
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
 
     return InkWell(
       onTap: () {
         setState(() {
+<<<<<<< HEAD
           if (isStatus) {
             // FIX LOGIC: When 'All' is clicked, value is null, which is correct.
             selectedStatus = value;
@@ -566,6 +745,9 @@ class _HistoryState extends State<History> {
             selectedCategory = value;
           }
           _applyFilters();
+=======
+          selectedStatus = value;
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
         });
       },
       child: Container(
@@ -591,6 +773,7 @@ class _HistoryState extends State<History> {
     );
   }
 
+<<<<<<< HEAD
   Widget _buildCategoryChip(
     String label,
     String? value, {
@@ -599,6 +782,8 @@ class _HistoryState extends State<History> {
     return _buildFilterChip(label, value, isStatus: isStatus);
   }
 
+=======
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
   // Custom date formatting function
   String _formatDate(DateTime date, String format) {
     if (format == 'dd/MM/yyyy') {
@@ -640,11 +825,43 @@ class _HistoryState extends State<History> {
     return '$prefix$result';
   }
 
+<<<<<<< HEAD
   // Custom function to format number without prefix (used internally)
   String _formatNumber(int number) {
     return number.toString().replaceAllMapped(
       RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
       (Match m) => '${m[1]}.',
+=======
+  Widget _buildCategoryChip(String label, String? value) {
+    final isSelected = selectedCategory == value;
+
+    return InkWell(
+      onTap: () {
+        setState(() {
+          selectedCategory = value;
+        });
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: isSelected ? Colors.deepPurple : Colors.grey.shade300,
+          ),
+          borderRadius: BorderRadius.circular(20),
+          color:
+              isSelected
+                  ? Colors.deepPurple.withOpacity(0.1)
+                  : Colors.transparent,
+        ),
+        child: Text(
+          label,
+          style: TextStyle(
+            color: isSelected ? Colors.deepPurple : Colors.black,
+            fontSize: 12,
+          ),
+        ),
+      ),
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
     );
   }
 }

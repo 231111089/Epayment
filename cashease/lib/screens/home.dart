@@ -1,11 +1,17 @@
 // lib/home.dart
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:intl/intl.dart';
 
 // MENGGUNAKAN PATHS YANG SUDAH DIKOREKSI (screens/ dan services/)
 import 'kirim_uang.dart';
 import 'minta_uang.dart';
 import 'settings.dart';
+=======
+import 'package:tugas/screens/kirim_uang.dart';
+import 'minta_uang.dart';
+import 'package:tugas/screens/settings.dart';
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
 import 'profile.dart';
 import 'inbox.dart';
 import 'history.dart';
@@ -17,6 +23,10 @@ import 'loan.dart';
 import 'creditcard.dart';
 import 'beneficiary.dart';
 import 'topup.dart';
+<<<<<<< HEAD
+=======
+import 'package:intl/intl.dart';
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
 import 'transfer.dart';
 import '../services/database_helper.dart';
 
@@ -37,7 +47,11 @@ class _HomeState extends State<Home> {
       phoneNumber: widget.phoneNumber,
       onBalanceChanged: _refreshPage,
     ),
+<<<<<<< HEAD
     History(phoneNumber: widget.phoneNumber),
+=======
+    const History(),
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
     const QrisPage(),
     const Pocket(),
     const ProfilePage(),
@@ -187,12 +201,16 @@ class _HomeState extends State<Home> {
               Navigator.pop(context);
               final result = await Navigator.push(
                 context,
+<<<<<<< HEAD
                 MaterialPageRoute(
                   builder:
                       (context) => WithdrawPage(
                         phoneNumber: widget.phoneNumber,
                       ), // FIX 1
                 ),
+=======
+                MaterialPageRoute(builder: (context) => const WithdrawPage()),
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
               );
               if (result == true) _refreshPage();
             },
@@ -353,7 +371,10 @@ class _HomeState extends State<Home> {
           icon: Icon(Icons.history),
           label: "History",
         ),
+<<<<<<< HEAD
         // Fungsionalitas QRIS tetap di sini (index 2)
+=======
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
         BottomNavigationBarItem(
           icon: Container(
             padding: const EdgeInsets.all(12),
@@ -424,7 +445,18 @@ class _HomeHeaderBodyState extends State<HomeHeaderBody> {
     _loadBalance();
   }
 
+<<<<<<< HEAD
   Future<void> _loadBalance() async {
+=======
+  // --- PERBAIKAN: JIKA HANYA SALDO BERUBAH, TIDAK PERLU REBUILD WIDGET TREE
+  // Hapus didUpdateWidget jika sebelumnya ada, karena kita menggunakan FutureBuilder di build()
+  // dan _refreshBalance akan memanggil setState.
+
+  Future<void> _loadBalance() async {
+    // Kita panggil setState di HomeState (parent), bukan di sini,
+    // karena memanggil setState di sini akan menyebabkan error didUpdateWidget
+    // jika data berubah di tempat lain dan widget ini mencoba membangun ulang.
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
     setState(() => _isLoading = true);
     final balance = await _dbHelper.getUserBalance(widget.phoneNumber);
     setState(() {
@@ -441,7 +473,12 @@ class _HomeHeaderBodyState extends State<HomeHeaderBody> {
   @override
   Widget build(BuildContext context) {
     if (_isLoading) {
+<<<<<<< HEAD
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
+=======
+      // Tampilkan saldo saat ini (0) dan lakukan fetch
+      // return const Scaffold(body: Center(child: CircularProgressIndicator()));
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
     }
 
     return Column(
@@ -544,6 +581,10 @@ class _HomeHeaderBodyState extends State<HomeHeaderBody> {
             const SizedBox(height: 16),
             Row(
               children: [
+<<<<<<< HEAD
+=======
+                // PERBAIKAN: Tampilkan saldo dari state lokal yang di-refresh
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
                 Text(
                   _isAmountVisible
                       ? 'Rp. ${NumberFormat('#,###', 'id_ID').format(_currentBalance)}'
@@ -579,7 +620,16 @@ class _HomeHeaderBodyState extends State<HomeHeaderBody> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
+<<<<<<< HEAD
         // ISI SALDO
+=======
+        _buildHeaderButton(Icons.qr_code_scanner, 'Pindai', () async {
+          await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const QrisPage()),
+          );
+        }),
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
         _buildHeaderButton(Icons.add, 'Isi Saldo', () async {
           final added = await Navigator.push<int>(
             context,
@@ -600,26 +650,42 @@ class _HomeHeaderBodyState extends State<HomeHeaderBody> {
             await _refreshBalance();
           }
         }),
+<<<<<<< HEAD
         // KIRIM
         _buildHeaderButton(Icons.attach_money, 'Kirim', () async {
+=======
+        _buildHeaderButton(Icons.attach_money, 'Kirim', () async {
+          // PERBAIKAN UTAMA: Tangkap hasil dari TransferPage
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
           final result = await Navigator.push(
             context,
             MaterialPageRoute(
               builder:
+<<<<<<< HEAD
                   (context) => KirimUangPage(phoneNumber: widget.phoneNumber),
             ),
           );
+=======
+                  (context) => TransferPage(phoneNumber: widget.phoneNumber),
+            ),
+          );
+          // Jika result adalah true, saldo telah berubah
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
           if (result == true) {
             await _refreshBalance();
           }
         }),
+<<<<<<< HEAD
         // MINTA
+=======
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
         _buildHeaderButton(Icons.request_page, 'Minta', () async {
           await Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const BagiUangPage()),
           );
         }),
+<<<<<<< HEAD
         // TARIK (WITHDRAW)
         _buildHeaderButton(Icons.atm, 'Tarik', () async {
           final result = await Navigator.push(
@@ -634,6 +700,8 @@ class _HomeHeaderBodyState extends State<HomeHeaderBody> {
             await _refreshBalance();
           }
         }),
+=======
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
       ],
     );
   }
@@ -846,6 +914,10 @@ class _HomeHeaderBodyState extends State<HomeHeaderBody> {
         'icon': Icons.account_balance,
         'label': 'Transfer',
         'onTap': () async {
+<<<<<<< HEAD
+=======
+          // PERBAIKAN: Tangkap hasil dari TransferPage
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
           final result = await Navigator.push(
             context,
             MaterialPageRoute(

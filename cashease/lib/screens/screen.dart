@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // lib/screen.dart
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -6,6 +7,11 @@ import 'package:shared_preferences/shared_preferences.dart'; // <-- New import
 // Import file lokal
 import 'login.dart'; // Asumsi login.dart ada di lib/
 import 'home.dart'; // Asumsi home.dart ada di lib/
+=======
+import 'package:flutter/material.dart';
+import 'dart:async';
+import 'login.dart';
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
 
 class Screen extends StatefulWidget {
   const Screen({super.key});
@@ -15,6 +21,7 @@ class Screen extends StatefulWidget {
 }
 
 class _ScreenState extends State<Screen> {
+<<<<<<< HEAD
   Future<void> _checkLoginStatus() async {
     final prefs = await SharedPreferences.getInstance();
     final String? phoneNumber = prefs.getString('loggedInPhone');
@@ -43,6 +50,16 @@ class _ScreenState extends State<Screen> {
   void initState() {
     super.initState();
     _checkLoginStatus();
+=======
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 3), () async {
+      await Navigator.of(
+        context,
+      ).pushReplacement(MaterialPageRoute(builder: (_) => Login()));
+    });
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
   }
 
   @override

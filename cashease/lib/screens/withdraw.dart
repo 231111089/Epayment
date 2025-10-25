@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 // lib/screens/withdraw.dart
 
 import 'package:flutter/material.dart';
 // FIX PATH: Menggunakan path relatif (asumsi cair.dart ada di lib/screens/ juga)
+=======
+import 'package:flutter/material.dart';
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
 import 'cair.dart';
 
 class WithdrawOption {
@@ -17,9 +21,13 @@ class WithdrawOption {
 }
 
 class WithdrawPage extends StatefulWidget {
+<<<<<<< HEAD
   final String phoneNumber;
 
   const WithdrawPage({super.key, required this.phoneNumber});
+=======
+  const WithdrawPage({super.key});
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
 
   @override
   State<WithdrawPage> createState() => _WithdrawPageState();
@@ -126,6 +134,7 @@ class _WithdrawPageState extends State<WithdrawPage> {
             color: Colors.grey,
             size: 18,
           ),
+<<<<<<< HEAD
           // FIX: Mengubah onTap menjadi async dan menggunakan await
           onTap: () async {
             final result = await Navigator.push(
@@ -142,6 +151,15 @@ class _WithdrawPageState extends State<WithdrawPage> {
             if (result == true) {
               Navigator.pop(context, true);
             }
+=======
+          onTap: () async {
+            await Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CairPage(bankName: option.name),
+              ),
+            );
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
           },
         ),
         Divider(height: 1, indent: 16, endIndent: 16, color: Colors.grey[200]),

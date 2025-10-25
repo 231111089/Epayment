@@ -31,7 +31,10 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.18.1
+<<<<<<< HEAD
   shared_preferences: ^2.2.3
+=======
+>>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
   http: ^1.2.0
   path: ^1.8.3           # <--- DIPERLUKAN UNTUK database_helper
   crypto: ^3.0.3
