@@ -29,17 +29,10 @@ packages:
     dependency: transitive
     description:
       name: async
-<<<<<<< HEAD
       sha256: d2872f9c19731c2e5f10444b14686eb7cc85c76274bd6c16e1816bff9a3bab63
       url: "https://pub.dev"
     source: hosted
     version: "2.12.0"
-=======
-      sha256: "758e6d74e971c3e5aceb4110bfd6698efc7f501675bcfe0c775459a8140750eb"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.13.0"
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
   boolean_selector:
     dependency: transitive
     description:
@@ -116,17 +109,10 @@ packages:
     dependency: transitive
     description:
       name: fake_async
-<<<<<<< HEAD
       sha256: "6a95e56b2449df2273fd8c45a662d6947ce1ebb7aafe80e550a3f68297f3cacc"
       url: "https://pub.dev"
     source: hosted
     version: "1.3.2"
-=======
-      sha256: "5368f224a74523e8d2e7399ea1638b37aecfca824a3cc4dfdf77bf1fa905ac44"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.3.3"
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
   ffi:
     dependency: transitive
     description:
@@ -135,7 +121,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
-<<<<<<< HEAD
   file:
     dependency: transitive
     description:
@@ -144,8 +129,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.1"
-=======
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
+  firebase_core:
+    dependency: "direct main"
+    description:
+      name: firebase_core
+      sha256: "7be63a3f841fc9663342f7f3a011a42aef6a61066943c90b1c434d79d5c995c5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.15.2"
+  firebase_core_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_core_platform_interface
+      sha256: cccb4f572325dc14904c02fcc7db6323ad62ba02536833dddb5c02cac7341c64
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.2"
+  firebase_core_web:
+    dependency: transitive
+    description:
+      name: firebase_core_web
+      sha256: "0ed0dc292e8f9ac50992e2394e9d336a0275b6ae400d64163fdf0a8a8b556c37"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.24.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -245,17 +252,10 @@ packages:
     dependency: transitive
     description:
       name: leak_tracker
-<<<<<<< HEAD
       sha256: c35baad643ba394b40aac41080300150a4f08fd0fd6a10378f8f7c6bc161acec
       url: "https://pub.dev"
     source: hosted
     version: "10.0.8"
-=======
-      sha256: "6bb818ecbdffe216e81182c2f0714a2e62b593f4a4f13098713ff1685dfb6ab0"
-      url: "https://pub.dev"
-    source: hosted
-    version: "10.0.9"
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
   leak_tracker_flutter_testing:
     dependency: transitive
     description:
@@ -312,7 +312,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
-<<<<<<< HEAD
   path_provider_linux:
     dependency: transitive
     description:
@@ -337,8 +336,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.0"
-=======
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
   petitparser:
     dependency: transitive
     description:
@@ -379,7 +376,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.3"
-<<<<<<< HEAD
   shared_preferences:
     dependency: "direct main"
     description:
@@ -436,8 +432,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.1"
-=======
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
   sky_engine:
     dependency: transitive
     description: flutter
@@ -503,10 +497,10 @@ packages:
     dependency: transitive
     description:
       name: sqlite3
-      sha256: f18fd9a72d7a1ad2920db61368f2a69368f1cc9b56b8233e9d83b47b0a8435aa
+      sha256: "3145bd74dcdb4fd6f5c6dda4d4e4490a8087d7f286a14dee5d37087290f0f8a2"
       url: "https://pub.dev"
     source: hosted
-    version: "2.9.3"
+    version: "2.9.4"
   stack_trace:
     dependency: transitive
     description:
@@ -583,17 +577,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-<<<<<<< HEAD
       sha256: "0968250880a6c5fe7edc067ed0a13d4bae1577fe2771dcf3010d52c4a9d3ca14"
       url: "https://pub.dev"
     source: hosted
     version: "14.3.1"
-=======
-      sha256: ddfa8d30d89985b96407efce8acbdd124701f96741f2d981ca860662f1c0dc02
-      url: "https://pub.dev"
-    source: hosted
-    version: "15.0.0"
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
   web:
     dependency: transitive
     description:
@@ -602,7 +589,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
-<<<<<<< HEAD
   xdg_directories:
     dependency: transitive
     description:
@@ -611,8 +597,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
-=======
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
   xml:
     dependency: transitive
     description:
@@ -631,8 +615,4 @@ packages:
     version: "3.1.3"
 sdks:
   dart: ">=3.7.0 <4.0.0"
-<<<<<<< HEAD
   flutter: ">=3.29.0"
-=======
-  flutter: ">=3.27.0"
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1

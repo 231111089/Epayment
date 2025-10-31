@@ -1,14 +1,28 @@
-// lib/main.dart
+// cashease/lib/main.dart
 
 import 'package:flutter/material.dart';
 import 'screens/screen.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
+// Import yang dibutuhkan untuk Firebase Core
+import 'package:firebase_core/firebase_core.dart';
+// Import file konfigurasi yang baru dibuat oleh flutterfire configure
+import 'firebase_options.dart';
+
 // import 'home.dart';
-void main() {
+void main() async {
   // PENTING: Memastikan Flutter binding terinisialisasi.
-  // Ini harus dipanggil sebelum memanggil metode native apa pun (seperti sqfliteFfiInit()).
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Inisialisasi Firebase Core
+  try {
+    // Menggunakan konfigurasi yang dihasilkan oleh flutterfire configure
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  } catch (e) {
+    // print("Gagal inisialisasi Firebase: $e");
+  }
 
   // Inisialisasi databaseFactory untuk desktop/Windows
   sqfliteFfiInit();
