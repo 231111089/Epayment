@@ -31,22 +31,18 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.18.1
-<<<<<<< HEAD
-  shared_preferences: ^2.2.3
-=======
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
-  http: ^1.2.0
-  path: ^1.8.3           # <--- DIPERLUKAN UNTUK database_helper
-  crypto: ^3.0.3
-  
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+  # ... paket-paket lain
   cupertino_icons: ^1.0.8
   font_awesome_flutter: ^10.8.0
   pin_code_fields: ^8.0.0
   sqflite: ^2.4.2
   sqflite_common_ffi: ^2.3.6
+  shared_preferences: ^2.2.3  
+  http: ^1.2.0             
+  crypto: ^3.0.3            
+  path: ^1.8.3  
+  firebase_core: ^2.24.2   
+  universal_io: ^2.2.2      
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1

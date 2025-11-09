@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "88461172225",
+    "project_id": "epayment-7d83b",
+    "storage_bucket": "epayment-7d83b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88461172225:android:26455cd21ce83d26a1ea00",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-Gt4uwC139e0h8Y-A-5hqdyCMPjZaY7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

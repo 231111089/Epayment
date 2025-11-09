@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // lib/SecurtyCode.dart
 
 import 'package:flutter/material.dart';
@@ -9,13 +8,6 @@ import 'package:shared_preferences/shared_preferences.dart'; // <-- New import
 // Import file lokal
 import 'home.dart';
 import '../services/database_helper.dart';
-=======
-import 'package:flutter/material.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
-import '../services/database_helper.dart';
-import 'home.dart';
-import 'dart:math';
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
 
 class SecurtyCode extends StatefulWidget {
   final String phoneNumber;
@@ -37,7 +29,6 @@ class _SecurtyCodeState extends State<SecurtyCode> {
     _showGeneratedCode(); // langsung tampilkan popup saat masuk halaman
   }
 
-<<<<<<< HEAD
   // Fungsi untuk menyimpan sesi login
   Future<void> _saveLoginSession() async {
     final prefs = await SharedPreferences.getInstance();
@@ -45,8 +36,6 @@ class _SecurtyCodeState extends State<SecurtyCode> {
     print('Session saved for: ${widget.phoneNumber}');
   }
 
-=======
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
   Future<void> _showGeneratedCode() async {
     // Generate random 6 digit code
     String code = List.generate(6, (_) => Random().nextInt(10)).join();
@@ -54,18 +43,13 @@ class _SecurtyCodeState extends State<SecurtyCode> {
       _generatedCode = code;
     });
 
-<<<<<<< HEAD
     await Future.delayed(
       Duration(milliseconds: 400),
     ); // jeda sedikit agar dialog tampil rapi
-=======
-    await Future.delayed(Duration(milliseconds: 400)); // jeda sedikit agar dialog tampil rapi
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
 
     await showDialog(
       context: context,
       barrierDismissible: false,
-<<<<<<< HEAD
       builder:
           (context) => AlertDialog(
             title: const Text('Security Code Anda'),
@@ -80,21 +64,6 @@ class _SecurtyCodeState extends State<SecurtyCode> {
               ),
             ],
           ),
-=======
-      builder: (context) => AlertDialog(
-        title: const Text('Security Code Anda'),
-        content: Text(
-          'Kode Anda: $code',
-          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('OK', style: TextStyle(fontSize: 18)),
-          ),
-        ],
-      ),
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
     );
   }
 
@@ -182,30 +151,20 @@ class _SecurtyCodeState extends State<SecurtyCode> {
                     onPressed: () async {
                       if (_formKey.currentState?.validate() ?? false) {
                         if (_enteredCode == _generatedCode) {
-<<<<<<< HEAD
                           // Simpan ke database (jika ini registrasi)
                           // Note: logikanya seharusnya register sudah dilakukan di password.dart,
                           // tetapi jika ini adalah langkah terakhir, kita tetap lanjut.
                           // Asumsi: PIN sudah disimpan di database di langkah sebelumnya (password.dart).
 
                           await _saveLoginSession(); // <-- SIMPAN SESI DI SINI
-=======
-                          // Simpan ke database
-                          await createAccount(_enteredCode);
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
 
                           // Lanjut ke Home
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-<<<<<<< HEAD
                               builder:
                                   (context) =>
                                       Home(phoneNumber: widget.phoneNumber),
-=======
-                              builder: (context) =>
-                                  Home(phoneNumber: widget.phoneNumber),
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
                             ),
                           );
                         } else {
@@ -252,8 +211,4 @@ class _SecurtyCodeState extends State<SecurtyCode> {
       return false;
     }
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 539719d8a23c2642640c9ed5b5cd4648d69ed0c1
