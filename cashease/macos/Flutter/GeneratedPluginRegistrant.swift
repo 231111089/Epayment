@@ -5,7 +5,10 @@
 import FlutterMacOS
 import Foundation
 
+<<<<<<< HEAD
 import firebase_core
+=======
+>>>>>>> 5ff898830a9d94de7cdb395fe7d1682bfb5aab1c
 import shared_preferences_foundation
 import sqflite_darwin
 
